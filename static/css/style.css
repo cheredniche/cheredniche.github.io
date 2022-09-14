@@ -17,6 +17,17 @@ body {
 ol, ul {
   list-style: none;
 }
+.noise::before{
+ position: fixed;
+top: 0;
+ width: 100vw;
+ height: 100vh;
+ content: "";
+ opacity: .06;
+ z-index: 1000;
+ pointer-events: none;
+ background: url(noise.gif);
+}
 blockquote, q {
   quotes: none;
 }
@@ -79,19 +90,15 @@ body {
 
 }
 #bg {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 2%;
-  height: 2vh;
-  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
-  background-repeat: repeat;
-  animation: bg-animation .2s infinite;
-  opacity: .9;
-  visibility: visible;
-  filter: invert(100%);
+   position: fixed;
+top: 0;
+ width: 100vw;
+ height: 100vh;
+ content: "";
+ opacity: .06;
+ z-index: 1000;
+ pointer-events: none;
+ background: url(noise.gif);
 }
 
 #particles {
