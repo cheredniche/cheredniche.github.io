@@ -43,7 +43,7 @@
   "grainWidth": 1,
   "grainHeight": 5.96
 }
-grained("#elementId", options);
+grained("bg", options);
 
 /*
 background-color :rgb(205, 179, 213)
