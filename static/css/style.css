@@ -80,6 +80,15 @@ body {
   text-align: center;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+     position: fixed;
+top: 0;
+ width: 100vw;
+ height: 100vh;
+ content: "";
+ opacity: .06;
+ z-index: 1000;
+ pointer-events: none;
+ background: url(noise.gif);
 }
 .img {
 

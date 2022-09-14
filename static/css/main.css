@@ -34,8 +34,8 @@ table {
 
 * {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body {
@@ -61,7 +61,7 @@ html, body {
     100% { transform: translate(5%,0) }
 }
 body {
-  background: #CDB3D5;
+  background: #cdb3d5;
   font-family: 'Montserrat', sans-serif;
   color: #000;
   line-height: 1.3;
@@ -69,6 +69,17 @@ body {
   text-align: center;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+.noise::before{
+ position: fixed;
+ top: 0;
+ width: 100vw;
+ /* height: 00vh; */
+ content: "";
+ opacity: .04;
+ z-index: 1000;
+ pointer-events: none;
+ background: url(noise.gif);
 }
 .img {
 
@@ -78,21 +89,7 @@ body {
   height: 500px;
 
 }
-#bg {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 2%;
-  height: 2vh;
-  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
-  background-repeat: repeat;
-  animation: bg-animation .2s infinite;
-  opacity: .9;
-  visibility: visible;
-  filter: invert(100%);
-}
+#bg {position: fixed;top: 0;width: 100vw;height: 100vh;content: "";opacity: .06;z-index: 1000;pointer-events: none;background: url(noise.gif);}
 
 #particles {
   width: 0%;
