@@ -89,6 +89,7 @@ body {
   height: 500px;
 
 }
+
 #bg {position: fixed;top: 0;width: 100vw;height: 100vh;content: "";opacity: .06;z-index: 1000;pointer-events: none;background: url(noise.gif);}
 
 #particles {
@@ -105,6 +106,28 @@ body {
   width: 100%;
   text-align: center;
 }
+
+
+#picture::before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+#picture:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+#picture::before {
+  content: " ";
+  display: inline;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: rgb(201, 174, 153);
+  z-index: -10;
+  transition: transform .3s ease;
+}
 h2 {
   text-transform: uppercase;
   font-size: 50px;
@@ -116,7 +139,7 @@ h2 {
 }
 h1::after {
   content: '';
-  width: 80px;
+  width: 90px;
   display: block;
   background: #000;
   height: 10px;
@@ -133,149 +156,43 @@ p {
   justify-content: center;
   text-align: center;
 }
-
-
-#menuToggle
-{
-  display: block;
+.waves {
   position: relative;
-  top: 20px;
-  left: 20px;
-  
-  z-index: 1;
-  
-  -webkit-user-select: none;
-  user-select: none;
+  top: 90vh;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
 }
+/* Animation */
 
-#menuToggle a
-{
-  text-decoration: none;
-  color: #232323;
-  
-  transition: color 0.3s ease;
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
 }
-
-#menuToggle a:hover
-{
-  color: tomato;
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
 }
-
-
-#menuToggle input
-{
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  left: -5px;
-  
-  cursor: pointer;
-  
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-  
-  -webkit-touch-callout: none;
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
 }
-
-/*
- * Just a quick hamburger
- */
-#menuToggle span
-{
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  
-  background: #000;
-  border-radius: 10px;
-  
-  z-index: 1;
-  
-  transform-origin: 4px 0px;
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
 }
-
-#menuToggle span:first-child
-{
-  transform-origin: 0% 0%;
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
 }
-
-#menuToggle span:nth-last-child(2)
-{
-  transform-origin: 0% 100%;
-}
-
-/* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
-#menuToggle input:checked ~ span
-{
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
-}
-
-/*
- * But let's hide the middle one.
- */
-#menuToggle input:checked ~ span:nth-last-child(3)
-{
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
-}
-
-/*
- * Ohyeah and the last one should go the other direction
- */
-#menuToggle input:checked ~ span:nth-last-child(2)
-{
-  transform: rotate(-45deg) translate(0, -1px);
-}
-
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
-#menu
-{
-  position: absolute;
-  width: 380px;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px;
-  
-  background: #ffffff;
-  opacity: 2;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  
-  transform-origin: 20% 20%;
-  transform: translate(-100%, 0);
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-}
-
-#menu li
-{
-  padding: 20% 0;
-  font-size: 22px;
-}
-
-/*
- * And let's slide it in from the left
- */
-#menuToggle input:checked ~ ul
-{
-  transform: none;
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
 }
 @media only screen and (max-width: 1000px) {
   h1 {
